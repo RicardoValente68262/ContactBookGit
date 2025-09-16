@@ -1,7 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
-
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -60,16 +58,16 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
-    public Contact getContactByNumber(int number) {
+    public String getContactByNumber(int number) {
         for(int i = 0; i < counter; i++) {
             if (contacts[i].getPhone() == number) {
-                return contacts[i];
+                return contacts[i].getName();
             }
         }
         return null;
     }
 
-    public boolean getContactsWithSameNumber() {
+    public boolean hasContactsWithRepeatedNum() {
         for (int i = 0; i < counter - 1; i++) {
             for (int j = i + 1; j < counter; j++) {
                 if (contacts[i].getPhone()== contacts[j].getPhone()) {
